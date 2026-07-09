@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Roboto", sans-serif;
+  --font-body: "Outfit", sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.75rem;
+}
