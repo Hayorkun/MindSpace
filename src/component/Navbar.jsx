@@ -14,9 +14,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-10 px-6 md:px-12 border-b bg-white sticky top-0">
-        <div className="h-15 mx-auto hidden md:flex justify-between items-center">
-          <div className="flex items-baseline align-bottom">
+      <nav className="z-50 px-6 md:px-12 border-b bg-white sticky top-0">
+        <div className="mx-auto hidden md:flex justify-between items-center h-16">
+          <div className="flex items-baseline">
             <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
             <h1 className="text-2xl font-semibold">
               <strong>
@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* MOBILE NAVBAR */}
-        <div className="md:hidden h-15 top-0 flex justify-between items-center">
+        <div className="md:hidden flex justify-between items-center h-16">
           <div className="flex items-center gap-1">
             <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
             <h1 className="text-2xl font-semibold">
@@ -72,10 +72,10 @@ const Navbar = () => {
         <>
           <div
             onClick={() => setSideBar(false)}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm top-15 z-40"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
           />
           <div
-            className={`h-fit w-full z-50 p-3 top-15 right-0 left-0 fixed bg-white shadow-xl transform transition-transform duration-500 ease-in-out 
+            className={`h-fit w-full z-50 p-3 top-16.5 right-0 left-0 fixed bg-white shadow-xl transform transition-transform duration-500 ease-in-out 
               ${sideBar ? "translate-y-0" : "-translate-y-full"}`}
           >
             <div>
@@ -85,9 +85,7 @@ const Navbar = () => {
                     <a
                       href={links.href}
                       onClick={() => setSideBar(false)}
-                      className={({ isActive }) =>
-                        `text-sm font-semibold flex py-2 transition-colors${isActive ? "bg-indigo-600" : "text-black"}`
-                      }
+                      className="text-sm font-semibold flex py-2 transition-colors text-black"
                     >
                       {links.name}
                     </a>
