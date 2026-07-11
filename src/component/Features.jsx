@@ -1,11 +1,51 @@
-import { Calendar, Clock, Star, List, CheckCircle, PlusSquare } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Star,
+  List,
+  CheckCircle,
+  PlusSquare,
+} from "lucide-react";
 
 const Feature = () => {
+  const feature = [
+    {
+      icon: Calendar,
+      title: "Smart scheduling",
+      desc: "Assign due dates in seconds. Mindspace surfaces what's urgent so nothing slips through the cracks.",
+    },
+    {
+      icon: Clock,
+      title: " Real-time progress",
+      desc: "A live progress bar tells you exactly where you stand. Hit milestones with confidence, not guesswork.",
+    },
+    {
+      icon: Star,
+      title: "Category badges",
+      desc: " Label tasks as Work, Personal, Health, Finance, or Learning. Filter with one click, stay laser-focused.",
+    },
+    {
+      icon: List,
+      title: "Instant search",
+      desc: " Find any task by name or category in milliseconds. No folders, no nesting — just type and go.",
+    },
+    {
+      icon: PlusSquare,
+      title: "No-frction added",
+      desc: "Add a task with a single keystroke. Press Enter, it's in. No modal, no loading spinner, no delay.",
+    },
+    {
+      icon: CheckCircle,
+      title: "Satisfying completion",
+      desc: " Check off a task and watch the strikethrough animate. Dopamine, delivered — a small ritual that builds momentum.",
+    },
+  ];
+
   return (
-    <section className="my-15">
+    <section className="dark:bg-gray-900 dark:text-white py-10">
       <div className="flex flex-col items-center px-6 md:px-12">
-        <div className="bg-indigo-300/50 px-5 py-1 rounded-full mb-7">
-          <p className="font-body leading-relaxed font-semibold text-sm text-indigo-500">
+        <div className="bg-indigo-300/50 dark:bg-indigo-700 px-5 py-1 rounded-full mb-7">
+          <p className="font-body leading-relaxed font-semibold text-sm text-indigo-500 dark:text-indigo-200 ">
             Features
           </p>
         </div>
@@ -15,76 +55,26 @@ const Feature = () => {
         <p className="text-center tracking-wider text-sm font-semibold md:text-2xl leading-relaxed font-body text-gray-400">
           Mindspace is deliberately simple. Every feature earns its place.
         </p>
-        <div className="my-10 grid gap-7 md:grid-cols-3">
-          <div className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out">
-            <div className="bg-indigo-300/40 w-15 h-15 mb-4 text-indigo-500 rounded-xl flex items-center justify-center">
-              <Calendar className="size-7 " />
-            </div>
-            <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
-              Smart scheduling
-            </h3>
-            <p className="font-body leading-relaxed text-gray-400 text-lg ">
-              Assign due dates in seconds. Mindspace surfaces what's urgent so
-              nothing slips through the cracks.
-            </p>
-          </div>
-          <div className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out">
-            <div className="bg-indigo-300/40 w-15 h-15 mb-4 text-indigo-500 rounded-xl flex items-center justify-center">
-              <Clock className="size-7 " />
-            </div>
-            <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
-              Real-time progress
-            </h3>
-            <p className="font-body leading-relaxed text-gray-400 text-lg ">
-              A live progress bar tells you exactly where you stand. Hit
-              milestones with confidence, not guesswork.
-            </p>
-          </div>
-          <div className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out">
-            <div className="bg-indigo-300/40 w-15 h-15 mb-4 text-indigo-500 rounded-xl flex items-center justify-center">
-              <Star className="size-7 " />
-            </div>
-            <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
-              Category badges
-            </h3>
-            <p className="font-body leading-relaxed text-gray-400 text-lg ">
-              Label tasks as Work, Personal, Health, Finance, or Learning.
-              Filter with one click, stay laser-focused.
-            </p>
-          </div>
-          <div className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out">
-            <div className="bg-indigo-300/40 w-15 h-15 mb-4 text-indigo-500 rounded-xl flex items-center justify-center">
-              <List className="size-7 " />
-            </div>
-            <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
-              Instant search
-            </h3>
-            <p className="font-body leading-relaxed text-gray-400 text-lg ">
-             Find any task by name or category in milliseconds. No folders, no nesting — just type and go.
-            </p>
-          </div>
-          <div className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out">
-            <div className="bg-indigo-300/40 w-15 h-15 mb-4 text-indigo-500 rounded-xl flex items-center justify-center">
-              <PlusSquare className="size-7 " />
-            </div>
-            <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
-                No-frction added
-            </h3>
-            <p className="font-body leading-relaxed text-gray-400 text-lg ">
-              Add a task with a single keystroke. Press Enter, it's in. No modal, no loading spinner, no delay.
-            </p>
-          </div>
-          <div className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out">
-            <div className="bg-indigo-300/40 w-15 h-15 mb-4 text-indigo-500 rounded-xl flex items-center justify-center">
-              <CheckCircle className="size-7 " />
-            </div>
-            <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
-                Satisfying completion
-            </h3>
-            <p className="font-body leading-relaxed text-gray-400 text-lg ">
-              Check off a task and watch the strikethrough animate. Dopamine, delivered — a small ritual that builds momentum.
-            </p>
-          </div>
+        <div className="mt-10 grid gap-7 md:grid-cols-3">
+          {feature.map((f, index) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={index}
+                className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out"
+              >
+                <div className="bg-indigo-300/40 w-12 h-12 mb-4 dark:bg-indigo-500 dark:text-indigo-200 text-indigo-500 rounded-xl flex items-center justify-center">
+                  <Icon className="size-6 " />
+                </div>
+                <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
+                  {f.title}
+                </h3>
+                <p className="font-body leading-relaxed text-gray-400 text-lg ">
+                  {f.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

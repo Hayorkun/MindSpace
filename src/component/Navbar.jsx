@@ -1,10 +1,12 @@
 import Images from "../assets/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import useTheme from "../context/useTheme";
 
 const Navbar = () => {
   const [sideBar, setSideBar] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const NavBarLinks = [
     { name: "Features", href: "#features" },
@@ -14,15 +16,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-50 px-6 md:px-12 border-b bg-white sticky top-0">
+      <nav className="z-50 px-5 md:px-12 border-b dark:border-gray-800 bg-white sticky top-0 dark:bg-gray-900 dark:text-white">
         <div className="mx-auto hidden md:flex justify-between items-center h-16">
           <div className="flex items-baseline">
-            <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
-            <h1 className="text-2xl font-semibold">
-              <strong>
-                Mind<span className="text-indigo-600">Space</span>
-              </strong>
-            </h1>
+            <NavLink to="/" className="flex items-center">
+              <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
+              <h1 className="text-2xl font-semibold">
+                <strong>
+                  Mind<span className="text-indigo-600">Space</span>
+                </strong>
+              </h1>
+            </NavLink>
           </div>
           <div>
             <ul className="flex items-center gap-5">
@@ -38,16 +42,19 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className=" flex items-center gap-1">
+          <div className=" flex items-center gap-2">
+            <button onClick={toggleTheme}>
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </button>
             <NavLink
               to="signin"
-              className=" px-2 py-1.5 text-sm rounded-md hover:bg-gray-300/40 transition-colors ease-in-out duration-300"
+              className=" px-2 py-1.5 text-sm rounded-md hover:bg-gray-300/40 dark:hover:bg-gray-700/40 transition-colors ease-in-out duration-300"
             >
               Sign in
             </NavLink>
             <NavLink
               to="signup"
-              className="text-sm border px-2 py-1.5 rounded-md bg-indigo-600 text-white hover:opacity-90 transition-colors ease-in-out duration-300"
+              className="text-sm px-2 py-1.5 rounded-md bg-indigo-600 text-white hover:opacity-90 transition-colors ease-in-out duration-300"
             >
               Get Started Free
             </NavLink>
@@ -56,16 +63,23 @@ const Navbar = () => {
         {/* MOBILE NAVBAR */}
         <div className="md:hidden flex justify-between items-center h-16">
           <div className="flex items-center gap-1">
-            <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
-            <h1 className="text-2xl font-semibold">
-              <strong>
-                Mind<span className="text-indigo-600">Space</span>
-              </strong>
-            </h1>
+            <NavLink to="/" className="flex items-center">
+              <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
+              <h1 className="text-2xl font-semibold">
+                <strong>
+                  Mind<span className="text-indigo-600">Space</span>
+                </strong>
+              </h1>
+            </NavLink>
           </div>
-          <button onClick={() => setSideBar(!sideBar)}>
-            {sideBar ? <X /> : <Menu />}
-          </button>
+          <div className="flex items-center gap-4">
+            <button onClick={toggleTheme}>
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </button>
+            <button onClick={() => setSideBar(!sideBar)}>
+              {sideBar ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </nav>
       {sideBar && (
@@ -75,17 +89,17 @@ const Navbar = () => {
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
           />
           <div
-            className={`h-fit w-full z-50 p-3 top-16.5 right-0 left-0 fixed bg-white shadow-xl transform transition-transform duration-500 ease-in-out 
+            className={`h-fit w-full z-50 py-5 top-16.5 right-0 left-0 fixed bg-white shadow-xl transform transition-transform duration-500 ease-in-out dark:bg-gray-900 dark:text-white 
               ${sideBar ? "translate-y-0" : "-translate-y-full"}`}
           >
-            <div>
+            <div className="">
               <ul className="flex flex-col gap-5 mb-5">
                 {NavBarLinks.map((links) => (
-                  <li key={links.name} className="hover:bg-gray-200/30">
+                  <li key={links.name} className="dark:hover:bg-gray-700/40 hover:bg-gray-200/30 px-3">
                     <a
                       href={links.href}
                       onClick={() => setSideBar(false)}
-                      className="text-sm font-semibold flex py-2 transition-colors text-black"
+                      className="text-sm font-semibold flex py-2 transition-colors text-black dark:text-white "
                     >
                       {links.name}
                     </a>
@@ -95,7 +109,7 @@ const Navbar = () => {
               <NavLink
                 to="/signup"
                 onClick={() => setSideBar(false)}
-                className="py-1 flex justify-center rounded-md bg-indigo-500 text-white text-lg hover:bg-indigo-600"
+                className="py-1 mx-3 flex justify-center rounded-md bg-indigo-500 text-white cursor-pointer text-lg hover:bg-indigo-600"
               >
                 Get Started
               </NavLink>

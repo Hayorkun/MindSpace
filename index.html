@@ -5,6 +5,25 @@
     <link rel="icon" type="image/svg+xml" href="/planning.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mindspace</title>
+    <script>
+      (function () {
+        const storedTheme = localStorage.getItem("theme");
+        let theme;
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+          theme = storedTheme;
+        } else {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          theme = prefersDark ? "dark" : "light";
+        }
+
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

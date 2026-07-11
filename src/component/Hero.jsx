@@ -53,13 +53,13 @@ const Hero = () => {
   const TEAMS = ["Linear", "Vercel", "Notion", "Figma", "Stripe", "Loom"];
 
   return (
-    <section className=" my-20">
+    <section className="dark:bg-gray-900 dark:text-white py-15">
       <div className="">
         <div className="md:px-12 px-6 max-w-6xl mx-auto">
           <div className="flex flex-col gap-3 md:flex-row">
-            <div className="md:flex-3">
-              <div className="w-35 h-6 rounded-full flex gap-2 text-xs font-semibold items-center justify-center text-indigo-500 bg-indigo-300/50 mb-5 font-body">
-                <span className="w-3 h-3 bg-indigo-500 rounded-full"></span>
+            <div className="md:flex-3 mb-5">
+              <div className="w-34 h-5 rounded-full flex gap-2 text-xs font-semibold items-center justify-center text-indigo-500 bg-indigo-300/50 dark:bg-indigo-600 dark:text-indigo-200 mb-5 font-body">
+                <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-200 rounded-full"></span>
                 Now In Public Beta
               </div>
 
@@ -76,41 +76,41 @@ const Hero = () => {
                 categories, your progress. No bloat. No friction. Just flow.
               </p>
               <div className="w-fit md:w-40 flex  md:flex-col gap-3 mb-4">
-                <NavLink className="border flex justify-center px-4 py-2 text-xs gap-1 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors ease-in-out duration-200">
+                <NavLink className="flex justify-center px-4 py-2 text-xs gap-1 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors ease-in-out duration-200">
                   Start for free <ArrowRight className="size-4" />
                 </NavLink>
-                <NavLink className="border justify-center border-gray-400/30 flex text-xs px-4 py-2 rounded-lg hover:bg-gray-300/20 transition-colors ease-in-out duration-200">
+                <NavLink className="border justify-center border-gray-400/30 flex text-xs px-4 py-2 rounded-lg hover:bg-gray-300/20 dark:hover:bg-gray-700/40 transition-colors ease-in-out duration-200">
                   See how it works
                 </NavLink>
               </div>
               <div className="w-70 z-10 items-center flex justify-between">
-                <div className="relative">
-                  <span className="absolute border-2 border-white p-1.5 -top-3.5 rounded-full bg-indigo-200 text-xs">
+                <div className="relative text-black">
+                  <span className="absolute border p-1.5 border-gray-300 -top-3.5 rounded-full bg-indigo-200 text-xs">
                     MD
                   </span>
-                  <span className="absolute border-2 border-white left-7 -top-3.5 p-1.5 rounded-full bg-yellow-200 text-xs">
+                  <span className="absolute border left-7 border-gray-300  -top-3.5 p-1.5 rounded-full bg-yellow-200 text-xs">
                     AP
                   </span>
-                  <span className="absolute border-2 border-white left-13 -top-3.5 p-1.5 rounded-full bg-green-200 text-xs">
+                  <span className="absolute border left-13 border-gray-300  -top-3.5 p-1.5 rounded-full bg-green-200 text-xs">
                     JP
                   </span>
-                  <span className="absolute border-2 border-white left-19 -top-3.5 p-1.5 rounded-full bg-purple-200 text-xs">
+                  <span className="absolute border left-19 border-gray-300  -top-3.5 p-1.5 rounded-full bg-purple-200 text-xs">
                     PT
                   </span>
-                  <span className="absolute border-2 border-white left-25 -top-3.5 p-1.5 rounded-full bg-red-200 text-xs">
+                  <span className="absolute border left-25 border-gray-300  -top-3.5 p-1.5 rounded-full bg-red-200 text-xs">
                     AY
                   </span>
                 </div>
                 <div className="flex items-start flex-col">
-                  <div className="flex gap-1">
-                    <Star className="fill-amber-300 stroke-white size-4" />
-                    <Star className="fill-amber-300 stroke-white size-4" />
-                    <Star className="fill-amber-300 stroke-white size-4" />
-                    <Star className="fill-amber-300 stroke-white size-4" />
-                    <Star className="fill-amber-300 stroke-white size-4" />
+                  <div className="flex gap-1 mb-1">
+                    <Star className="fill-amber-300 stroke-amber-300 size-4" />
+                    <Star className="fill-amber-300 stroke-amber-300 size-4" />
+                    <Star className="fill-amber-300 stroke-amber-300 size-4" />
+                    <Star className="fill-amber-300 stroke-amber-300 size-4" />
+                    <Star className="fill-amber-300 stroke-amber-300 size-4" />
                     <p className="text-xs">4.9</p>
                   </div>
-                  <p className="text-[8px] text-gray-500/80">
+                  <p className="text-[8px] text-gray-500/80 dark:text-gray-300">
                     Built for speed and deep focus.
                   </p>
                 </div>
@@ -118,7 +118,7 @@ const Hero = () => {
             </div>
             <div className="md:flex-2">
               <div className="h-full flex justify-center items-center p-3">
-                <div className="w-full shadow-2xl rounded-xl p-4">
+                <div className="w-full bg-gray-900 dark:bg-white dark:shadow-white dark:text-black shadow-md rounded-xl p-4">
                   <div className="w-full flex mb-2 items-center">
                     <div className="flex-1 flex gap-1 items-center">
                       <span className="w-3 h-3 rounded-full bg-red-500"></span>
@@ -126,7 +126,7 @@ const Hero = () => {
                       <span className="w-3 h-3 rounded-full bg-green-500"></span>
                     </div>
                     <div className="flex-5 flex items-center py-1 px-2 rounded-xl bg-gray-300/40">
-                      <p className="font-body text-xs text-gray-400">
+                      <p className="font-body text-xs text-gray-900">
                         app.Mindspace.io/tasks
                       </p>
                     </div>
@@ -189,13 +189,13 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="my-10 bg-gray-200/20 border-y border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center">
+        <div className="my-10 bg-gray-200/20 border-y dark:bg-gray-700/40 dark:border-gray-500 border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center">
           <h4 className="font-heading text-xl text-gray-400/70 leading-tight uppercase">
             Trusted By Teams At
           </h4>
           <div className="flex gap-12 max-w-2xl flex-wrap justify-center">
-            {TEAMS.map((t) => (
-              <p className="font-body text-2xl text-gray-400/70 font-bold">
+            {TEAMS.map((t, i) => (
+              <p key={i} className="font-body text-2xl text-gray-400/70 font-bold">
                 {t}
               </p>
             ))}
