@@ -53,10 +53,10 @@ const Hero = () => {
   const TEAMS = ["Linear", "Vercel", "Notion", "Figma", "Stripe", "Loom"];
 
   return (
-    <section className="md:px-12 my-20">
-      <div className="max-w-6xl mx-auto px-5">
-        <div>
-          <div className=" flex flex-col gap-3 md:flex-row">
+    <section className=" my-20">
+      <div className="">
+        <div className="md:px-12 px-6 max-w-6xl mx-auto">
+          <div className="flex flex-col gap-3 md:flex-row">
             <div className="md:flex-3">
               <div className="w-35 h-6 rounded-full flex gap-2 text-xs font-semibold items-center justify-center text-indigo-500 bg-indigo-300/50 mb-5 font-body">
                 <span className="w-3 h-3 bg-indigo-500 rounded-full"></span>
@@ -164,7 +164,7 @@ const Hero = () => {
                       <div
                         key={t.id}
                         onClick={() => handleToggleComplete(t.id)}
-                        className="flex gap-2  shadow-xl border-2 border-gray-300/70 rounded-lg p-3 cursor-pointer transition-opacity duration-200"
+                        className="flex gap-2  shadow-md border-2 border-gray-300/70 rounded-lg p-3 cursor-pointer transition-opacity duration-200"
                       >
                         <div>
                           <p
@@ -189,7 +189,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="my-10 border-y border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center">
+        <div className="my-10 bg-gray-200/20 border-y border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center">
           <h4 className="font-heading text-xl text-gray-400/70 leading-tight uppercase">
             Trusted By Teams At
           </h4>
