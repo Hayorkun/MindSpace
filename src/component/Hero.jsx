@@ -118,15 +118,15 @@ const Hero = () => {
             </div>
             <div className="md:flex-2">
               <div className="h-full flex justify-center items-center p-3">
-                <div className="w-full bg-gray-900 dark:bg-white dark:shadow-white dark:text-black shadow-md rounded-xl p-4">
-                  <div className="w-full flex mb-2 items-center">
+                <div className="w-full bg-gray-900 dark:bg-white dark:shadow-white dark:text-black text-white shadow-md rounded-xl p-4">
+                  <div className="w-full flex gap-3 mb-2 items-center">
                     <div className="flex-1 flex gap-1 items-center">
                       <span className="w-3 h-3 rounded-full bg-red-500"></span>
                       <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
                       <span className="w-3 h-3 rounded-full bg-green-500"></span>
                     </div>
-                    <div className="flex-5 flex items-center py-1 px-2 rounded-xl bg-gray-300/40">
-                      <p className="font-body text-xs text-gray-900">
+                    <div className="flex-5 flex items-center py-1 px-2 rounded-xl bg-gray-200">
+                      <p className="font-body text-xs text-gray-500">
                         app.Mindspace.io/tasks
                       </p>
                     </div>
@@ -145,7 +145,7 @@ const Hero = () => {
                       </h1>
                     </div>
                     <div className="flex flex-col items-end mb-2">
-                      <p className="font-body text-xs mb-1">2/4 done</p>
+                      <p className="font-body text-xs text-white dark:text-black mb-1">2/4 done</p>
                       <span className="w-20 h-2 rounded-full bg-gray-300 flex">
                         <span className="w-10 h-2 rounded-full bg-indigo-600"></span>
                       </span>
@@ -168,7 +168,7 @@ const Hero = () => {
                       >
                         <div>
                           <p
-                            className={`font-body text-sm transition-all mb-2 ${t.isCompleted ? "line-through text-gray-400" : "text-gray-900"}`}
+                            className={`font-body text-sm transition-all mb-2 ${t.isCompleted ? "line-through text-gray-400" : "text-gray-100 dark:text-gray-900"}`}
                           >
                             {t.title}
                           </p>
