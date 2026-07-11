@@ -1,5 +1,6 @@
 import Hero from "../component/Hero";
 import Navbar from "../component/Navbar";
+import Feature from "../component/Features";
 
 const LandingPage = () => {
   return (
@@ -7,7 +8,9 @@ const LandingPage = () => {
       <Navbar />
       <main>
         <Hero />
-        <section id="feature"></section>
+        <section id="feature">
+          <Feature/>
+        </section>
       </main>
     </div>
   );

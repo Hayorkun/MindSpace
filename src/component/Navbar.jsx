@@ -14,13 +14,14 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="px-6 md:px-12 border-b bg-white">
-        <div className="h-15 hidden md:flex justify-between items-center">
+      <nav className="z-10 px-6 md:px-12 border-b bg-white sticky top-0">
+        <div className="h-15 mx-auto hidden md:flex justify-between items-center">
           <div className="flex items-baseline align-bottom">
-            <img src={Images.Planning} alt="Logo icon" className="w-6 h-6" />
-            <h1 className="text-2xl font-heading tracking-wide">
-              Mind
-              <span className="text-sm font-bold">Space</span>
+            <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
+            <h1 className="text-2xl font-semibold">
+              <strong>
+                Mind<span className="text-indigo-600">Space</span>
+              </strong>
             </h1>
           </div>
           <div>
@@ -53,12 +54,13 @@ const Navbar = () => {
           </div>
         </div>
         {/* MOBILE NAVBAR */}
-        <div className="md:hidden h-15 flex justify-between items-center">
+        <div className="md:hidden h-15 top-0 flex justify-between items-center">
           <div className="flex items-center gap-1">
             <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
             <h1 className="text-2xl font-semibold">
-              Mind
-              <span className="text-sm">Space</span>
+              <strong>
+                Mind<span className="text-indigo-600">Space</span>
+              </strong>
             </h1>
           </div>
           <button onClick={() => setSideBar(!sideBar)}>
