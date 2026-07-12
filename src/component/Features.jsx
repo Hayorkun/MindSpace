@@ -31,8 +31,8 @@ const Feature = () => {
     },
     {
       icon: PlusSquare,
-      title: "No-frction added",
-      desc: "Add a task with a single keystroke. Press Enter, it's in. No modal, no loading spinner, no delay.",
+      title: "No-friction added",
+      desc: "Instant creation. Type your task, hit Enter, and keep moving. No pop-ups, no loading spinners, no delays.",
     },
     {
       icon: CheckCircle,
@@ -52,10 +52,10 @@ const Feature = () => {
         <h1 className="font-heading font-bold mb-3 text-4xl md:text-6xl leading-tight md:max-w-xl text-center">
           Everything you need. Nothing you don't.
         </h1>
-        <p className="text-center tracking-wider text-sm font-semibold md:text-2xl leading-relaxed font-body text-gray-400">
+        <p className="text-center text-sm md:text-2xl leading-relaxed font-body text-gray-400">
           Mindspace is deliberately simple. Every feature earns its place.
         </p>
-        <div className="mt-10 grid gap-7 md:grid-cols-3">
+        <div className="mt-10 grid shrink gap-10 sm:grid-cols-2 md:grid-cols-3">
           {feature.map((f, index) => {
             const Icon = f.icon;
             return (
@@ -69,7 +69,7 @@ const Feature = () => {
                 <h3 className="font-heading leading-tight mb-3 text-xl font-bold">
                   {f.title}
                 </h3>
-                <p className="font-body leading-relaxed text-gray-400 text-lg ">
+                <p className="font-body leading-relaxed text-gray-400 text-base ">
                   {f.desc}
                 </p>
               </div>
