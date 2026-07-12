@@ -43,11 +43,11 @@ const Feature = () => {
 
   return (
     <section className="dark:bg-gray-900 dark:text-white py-10">
-      <div className="flex flex-col items-center px-6 md:px-12">
-        <div className="bg-indigo-300/50 dark:bg-indigo-700 px-5 py-1 rounded-full mb-7">
-          <p className="font-body leading-relaxed font-semibold text-sm text-indigo-500 dark:text-indigo-200 ">
+      <div className="flex flex-col items-center px-5 md:px-10">
+        <div className="bg-indigo-300/50 dark:bg-indigo-700 px-3 py-1 rounded-full mb-7">
+          <h3 className="font-heading leading-tight tracking-widest font-semibold text-lg text-indigo-500 dark:text-indigo-200 ">
             Features
-          </p>
+          </h3>
         </div>
         <h1 className="font-heading font-bold mb-3 text-4xl md:text-6xl leading-tight md:max-w-xl text-center">
           Everything you need. Nothing you don't.
