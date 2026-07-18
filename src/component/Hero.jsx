@@ -145,7 +145,9 @@ const Hero = () => {
                       </h1>
                     </div>
                     <div className="flex flex-col items-end mb-2">
-                      <p className="font-body text-xs text-white dark:text-black mb-1">2/4 done</p>
+                      <p className="font-body text-xs text-white dark:text-black mb-1">
+                        2/4 done
+                      </p>
                       <span className="w-20 h-2 rounded-full bg-gray-300 flex">
                         <span className="w-10 h-2 rounded-full bg-indigo-600"></span>
                       </span>
@@ -195,7 +197,10 @@ const Hero = () => {
           </h4>
           <div className="flex gap-12 max-w-2xl flex-wrap justify-center">
             {TEAMS.map((t, i) => (
-              <p key={i} className="font-body text-2xl text-gray-400/70 font-bold">
+              <p
+                key={i}
+                className="font-body text-2xl text-gray-400/70 font-bold"
+              >
                 {t}
               </p>
             ))}

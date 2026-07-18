@@ -28,12 +28,12 @@ const HowItWorks = () => {
         <h1 className="font-heading font-bold text-center text-4xl md:text-5xl tracking-wide mb-15">
           Up and running in 30 seconds.
         </h1>
-        <div className=" relative p-5 max-w-5xl flex flex-col gap-10">
+        <div className="relative p-5 max-w-5xl flex flex-col gap-10">
           <div className="absolute left-13 top-22 bottom-27 w-0.5 bg-linear-to-b from-indigo-500 via-purple-500 to-green-500 -z-10" />
           {howItWorks.map((h, i) => (
             <div key={i} className="flex justify-between gap-5">
-              <div className="w-17 h-17 shrink-0 rounded-2xl border border-gray-300 dark:bg-gray-900 bg-gray-300/50 flex justify-center items-center">
-                <p className="font-body font-semibold text-2xl leading-relaxed bg-gray-">
+              <div className="w-17 h-17 shrink-0 rounded-2xl border dark:border-gray-400 border-gray-300 dark:bg-gray-900 bg-gray-300/50 flex justify-center items-center">
+                <p className="font-body font-semibold text-2xl leading-relaxed">
                   {h.step}
                 </p>
               </div>

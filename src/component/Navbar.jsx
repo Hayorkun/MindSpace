@@ -16,10 +16,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-50 px-5 md:px-12 border-b dark:border-gray-800 bg-white sticky top-0 dark:bg-gray-900 dark:text-white">
+      <nav className="z-50 px-5 md:px-10 border-b dark:border-gray-800 bg-white sticky -top-1 dark:bg-gray-900 dark:text-white">
         <div className="mx-auto hidden md:flex justify-between items-center h-16">
           <div className="flex items-baseline">
-            <NavLink to="/" className="flex items-center">
+            <NavLink to="/" className="flex items-center cursor-pointer">
               <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
               <h1 className="text-2xl font-semibold">
                 <strong>
@@ -34,7 +34,7 @@ const Navbar = () => {
                 <li key={links.name}>
                   <a
                     href={links.href}
-                    className="text-sm flex py-2 transition-colors"
+                    className="text-sm flex py-2 transition-colors cursor-pointer"
                   >
                     {links.name}
                   </a>
@@ -42,19 +42,19 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className=" flex items-center gap-2">
-            <button onClick={toggleTheme}>
+          <div className=" flex items-center gap-2 cursor-pointer">
+            <button onClick={toggleTheme} className="cursor-pointer"> 
               {theme === "dark" ? <Sun /> : <Moon />}
             </button>
             <NavLink
               to="signin"
-              className=" px-2 py-1.5 text-sm rounded-md hover:bg-gray-300/40 dark:hover:bg-gray-700/40 transition-colors ease-in-out duration-300"
+              className=" px-2 py-1.5 text-sm rounded-md hover:bg-gray-300/40 dark:hover:bg-gray-700/40 transition-colors ease-in-out duration-300 cursor-pointer"
             >
               Sign in
             </NavLink>
             <NavLink
               to="signup"
-              className="text-sm px-2 py-1.5 rounded-md bg-indigo-600 text-white hover:opacity-90 transition-colors ease-in-out duration-300"
+              className="text-sm px-2 py-1.5 rounded-md bg-indigo-600 text-white hover:opacity-90 transition-colors ease-in-out duration-300 cursor-pointer"
             >
               Get Started Free
             </NavLink>
@@ -73,10 +73,10 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="flex items-center gap-4">
-            <button onClick={toggleTheme}>
+            <button onClick={toggleTheme} className="cursor-pointer">
               {theme === "dark" ? <Sun /> : <Moon />}
             </button>
-            <button onClick={() => setSideBar(!sideBar)}>
+            <button onClick={() => setSideBar(!sideBar)} className="cursor-pointer">
               {sideBar ? <X /> : <Menu />}
             </button>
           </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
         <>
           <div
             onClick={() => setSideBar(false)}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 cursor-pointer"
           />
           <div
             className={`h-fit w-full z-50 py-5 top-16.5 right-0 left-0 fixed bg-white shadow-xl transform transition-transform duration-500 ease-in-out dark:bg-gray-900 dark:text-white 
@@ -99,7 +99,7 @@ const Navbar = () => {
                     <a
                       href={links.href}
                       onClick={() => setSideBar(false)}
-                      className="text-sm font-semibold flex py-2 transition-colors text-black dark:text-white "
+                      className="text-sm cursor-pointer font-semibold flex py-2 transition-colors text-black dark:text-white "
                     >
                       {links.name}
                     </a>

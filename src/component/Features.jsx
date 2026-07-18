@@ -55,7 +55,7 @@ const Feature = () => {
         <p className="text-center text-sm md:text-2xl leading-relaxed font-body text-gray-400">
           Mindspace is deliberately simple. Every feature earns its place.
         </p>
-        <div className="mt-10 grid shrink gap-10 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 grid gap-10 grid-flow-row md:grid-cols-3">
           {feature.map((f, index) => {
             const Icon = f.icon;
             return (
