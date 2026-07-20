@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Star, SearchCode } from "lucide-react";
+import { motion } from "framer-motion";
 import Images from "../assets/image";
 import { useState } from "react";
 
@@ -57,7 +58,13 @@ const Hero = () => {
       <div className="">
         <div className="md:px-10 px-5 max-w-7xl mx-auto">
           <div className="flex flex-col gap-5 md:flex-row">
-            <div className="md:flex-3 mb-5">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="md:flex-3 mb-5"
+            >
               <div className="w-34 h-5 rounded-full flex gap-2 text-xs font-semibold items-center justify-center text-indigo-500 bg-indigo-300/50 dark:bg-indigo-600 dark:text-indigo-200 mb-5 font-body">
                 <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-200 rounded-full"></span>
                 Now In Public Beta
@@ -75,7 +82,7 @@ const Hero = () => {
                 strips away everything except what matters — your tasks, your
                 categories, your progress. No bloat. No friction. Just flow.
               </p>
-              <div className="w-fit md:w-40 flex  md:flex-col gap-3 mb-4">
+              <div className="w-fit md:w-40 flex md:flex-col gap-3 mb-4">
                 <NavLink className="flex justify-center px-4 py-2 text-xs gap-1 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors ease-in-out duration-200">
                   Start for free <ArrowRight className="size-4" />
                 </NavLink>
@@ -88,16 +95,16 @@ const Hero = () => {
                   <span className="absolute border p-1.5 border-gray-300 -top-3.5 rounded-full bg-indigo-200 text-xs">
                     MD
                   </span>
-                  <span className="absolute border left-7 border-gray-300  -top-3.5 p-1.5 rounded-full bg-yellow-200 text-xs">
+                  <span className="absolute border left-7 border-gray-300 -top-3.5 p-1.5 rounded-full bg-yellow-200 text-xs">
                     AP
                   </span>
-                  <span className="absolute border left-13 border-gray-300  -top-3.5 p-1.5 rounded-full bg-green-200 text-xs">
+                  <span className="absolute border left-13 border-gray-300 -top-3.5 p-1.5 rounded-full bg-green-200 text-xs">
                     JP
                   </span>
-                  <span className="absolute border left-19 border-gray-300  -top-3.5 p-1.5 rounded-full bg-purple-200 text-xs">
+                  <span className="absolute border left-19 border-gray-300 -top-3.5 p-1.5 rounded-full bg-purple-200 text-xs">
                     PT
                   </span>
-                  <span className="absolute border left-25 border-gray-300  -top-3.5 p-1.5 rounded-full bg-red-200 text-xs">
+                  <span className="absolute border left-25 border-gray-300 -top-3.5 p-1.5 rounded-full bg-red-200 text-xs">
                     AY
                   </span>
                 </div>
@@ -115,9 +122,15 @@ const Hero = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="md:flex-2">
-              <div className=" flex justify-center items-center p-3">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="md:flex-2"
+            >
+              <div className="flex justify-center items-center p-3">
                 <div className="w-full bg-gray-900 dark:bg-white dark:shadow-white dark:text-black text-white shadow-md rounded-xl p-4">
                   <div className="w-full flex gap-3 mb-2 items-center">
                     <div className="flex-1 flex gap-1 items-center">
@@ -162,11 +175,16 @@ const Hero = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-5">
-                    {tasks.map((t) => (
-                      <div
+                    {tasks.map((t, index) => (
+                      <motion.div
                         key={t.id}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.35, delay: index * 0.08 }}
+                        whileHover={{ scale: 1.01, y: -3 }}
                         onClick={() => handleToggleComplete(t.id)}
-                        className="flex gap-2  shadow-md border-2 border-gray-300/70 rounded-lg p-3 cursor-pointer transition-opacity duration-200"
+                        className="flex gap-2 shadow-md border-2 border-gray-300/70 rounded-lg p-3 cursor-pointer transition-opacity duration-200"
                       >
                         <div>
                           <p
@@ -183,29 +201,39 @@ const Hero = () => {
                             <p className="font-body text-xs">{t.date}</p>
                           </div>
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-        <div className="my-10 bg-gray-200/20 border-y dark:bg-gray-700/40 dark:border-gray-500 border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="my-10 bg-gray-200/20 border-y dark:bg-gray-700/40 dark:border-gray-500 border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center"
+        >
           <h4 className="font-heading text-xl text-gray-400/70 leading-tight uppercase">
             Trusted By Teams At
           </h4>
           <div className="flex gap-12 max-w-2xl flex-wrap justify-center">
             {TEAMS.map((t, i) => (
-              <p
+              <motion.p
                 key={i}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
                 className="font-body text-2xl text-gray-400/70 font-bold"
               >
                 {t}
-              </p>
+              </motion.p>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Testimony = () => {
   const TESTIMONY = [
@@ -25,17 +26,37 @@ const Testimony = () => {
   return (
     <section className="py-10 dark:bg-[#0d1117] dark:text-white bg-gray-100/50">
       <div className="px-5 md:px-10 flex flex-col items-center">
-        <div className="bg-indigo-300/50 dark:bg-indigo-500 py-1 px-3 rounded-2xl mb-7">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45 }}
+          className="bg-indigo-300/50 dark:bg-indigo-500 py-1 px-3 rounded-2xl mb-7"
+        >
           <h3 className="text-indigo-500 dark:text-indigo-200 font-heading font-semibold leading-relaxed tracking-wide">
             Testimony
           </h3>
-        </div>
-        <h1 className="font-heading text-4xl font-bold tracking-wide leading-tight md:text-5xl text-center mb-10">
+        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45, delay: 0.05 }}
+          className="font-heading text-4xl font-bold tracking-wide leading-tight md:text-5xl text-center mb-10"
+        >
           People who actualy use it
-        </h1>
+        </motion.h1>
         <div className="grid md:grid-cols-3 gap-5">
           {TESTIMONY.map((t, i) => (
-            <div key={i} className="border border-gray-600/50 dark:border-gray-400 p-5 rounded-xl">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="border border-gray-600/50 dark:border-gray-400 p-5 rounded-xl"
+            >
               <div className="flex gap-1 mb-3">
                 <Star className="fill-amber-300 stroke-amber-300 size-4" />
                 <Star className="fill-amber-300 stroke-amber-300 size-4" />
@@ -53,7 +74,7 @@ const Testimony = () => {
                   <p className="font-body text-sm">{t.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

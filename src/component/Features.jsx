@@ -6,6 +6,7 @@ import {
   CheckCircle,
   PlusSquare,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Feature = () => {
   const feature = [
@@ -43,7 +44,13 @@ const Feature = () => {
 
   return (
     <section className="dark:bg-[#0d1117] dark:text-white bg-gray-100/50 py-10">
-      <div className="flex flex-col items-center px-5 md:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.55 }}
+        className="flex flex-col items-center px-5 md:px-10"
+      >
         <div className="bg-indigo-300/50 dark:bg-indigo-700 px-3 py-1 rounded-full mb-7">
           <h3 className="font-heading leading-tight tracking-widest font-semibold text-lg text-indigo-500 dark:text-indigo-200 ">
             Features
@@ -59,9 +66,14 @@ const Feature = () => {
           {feature.map((f, index) => {
             const Icon = f.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-in-out"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                whileHover={{ y: -6, scale: 1.01 }}
+                className="p-7 border border-gray-400/70 rounded-xl hover:border-indigo-300 hover:shadow-xl transition-all duration-200 ease-in-out"
               >
                 <div className="bg-indigo-300/40 w-12 h-12 mb-4 dark:bg-indigo-500 dark:text-indigo-200 text-indigo-500 rounded-xl flex items-center justify-center">
                   <Icon className="size-6 " />
@@ -72,11 +84,11 @@ const Feature = () => {
                 <p className="font-body leading-relaxed text-gray-400 text-base ">
                   {f.desc}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
