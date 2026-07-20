@@ -57,7 +57,7 @@ const Footer = () => {
             ))
           }
         </div>
-        <p className="font-body font-medium text-lg leading-relaxed tracking-widest text-gray-400">
+        <p className="font-body font-medium text-lg leading-relaxed tracking-widest text-gray-400 flex-nowrap">
           &copy; 2026 Mindspace. All rights reserved.
         </p>
       </div>
