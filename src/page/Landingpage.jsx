@@ -12,19 +12,25 @@ const LandingPage = () => {
     <div>
       <Navbar />
       <main>
-        <Hero />
-        <section id="#feature">
+        <section id="home" data-section>
+          <Hero />
+        </section>
+        <section id="features" data-section>
           <Feature />
         </section>
-        <section id="#how-it-works">
+        <section id="how-it-works" data-section>
           <HowItWorks />
         </section>
-        <Testimony />
-        <section id="#pricing">
+        <section id="testimony" data-section>
+          <Testimony />
+        </section>
+        <section id="pricing" data-section>
           <Pricing />
         </section>
-        <Cta/>
-        <Footer/>
+        <section id="get-started" data-section>
+          <Cta />
+        </section>
+        <Footer />
       </main>
     </div>
   );

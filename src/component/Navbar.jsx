@@ -2,19 +2,60 @@ import Images from "../assets/image";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useTheme from "../context/useTheme";
 
 const Navbar = () => {
   const [sideBar, setSideBar] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { theme, toggleTheme } = useTheme();
   const shouldReduceMotion = useReducedMotion();
 
   const NavBarLinks = [
-    { name: "Features", href: "#features" },
-    { name: "How it works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
+    { name: "Features", target: "features" },
+    { name: "How it works", target: "how-it-works" },
+    { name: "Pricing", target: "pricing" },
+   
   ];
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll("[data-section]"));
+
+    if (!sections.length) return;
+
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + 140;
+      let currentSection = "home";
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollPosition) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
+
+  const handleSectionClick = (event, target) => {
+    event.preventDefault();
+    setActiveSection(target);
+    setSideBar(false);
+
+    const targetElement = document.getElementById(target);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <>
@@ -38,16 +79,25 @@ const Navbar = () => {
           </div>
           <div>
             <ul className="flex items-center gap-5">
-              {NavBarLinks.map((links) => (
-                <li key={links.name}>
-                  <a
-                    href={links.href}
-                    className="text-sm flex py-2 transition-colors cursor-pointer"
-                  >
-                    {links.name}
-                  </a>
-                </li>
-              ))}
+              {NavBarLinks.map((links) => {
+                const isActive = activeSection === links.target;
+
+                return (
+                  <li key={links.name}>
+                    <a
+                      href={`#${links.target}`}
+                      onClick={(event) => handleSectionClick(event, links.target)}
+                      className={`text-sm flex py-2 transition-colors cursor-pointer ${
+                        isActive
+                          ? "text-indigo-600 dark:text-indigo-400 font-semibold underline decoration-2 underline-offset-4"
+                          : "text-gray-700 dark:text-gray-300"
+                      }`}
+                    >
+                      {links.name}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="flex items-center gap-2 cursor-pointer">
@@ -110,17 +160,25 @@ const Navbar = () => {
             >
               <div className="">
                 <ul className="flex flex-col gap-5 mb-5">
-                  {NavBarLinks.map((links) => (
-                    <li key={links.name} className="dark:hover:bg-gray-700/40 hover:bg-gray-200/30 px-3">
-                      <a
-                        href={links.href}
-                        onClick={() => setSideBar(false)}
-                        className="text-sm cursor-pointer font-semibold flex py-2 transition-colors text-black dark:text-white"
-                      >
-                        {links.name}
-                      </a>
-                    </li>
-                  ))}
+                  {NavBarLinks.map((links) => {
+                    const isActive = activeSection === links.target;
+
+                    return (
+                      <li key={links.name} className="dark:hover:bg-gray-700/40 hover:bg-gray-200/30 px-3">
+                        <a
+                          href={`#${links.target}`}
+                          onClick={(event) => handleSectionClick(event, links.target)}
+                          className={`text-sm cursor-pointer font-semibold flex py-2 transition-colors ${
+                            isActive
+                              ? "text-indigo-600 dark:text-indigo-400"
+                              : "text-black dark:text-white"
+                          }`}
+                        >
+                          {links.name}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <NavLink
                   to="/signup"

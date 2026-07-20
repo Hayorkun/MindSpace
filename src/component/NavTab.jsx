@@ -1,5 +1,9 @@
-const NavTab = () => {
-  return <div>NavTab</div>;
-};
+import React from 'react'
 
-export default NavTab;
+const NavTab = () => {
+  return (
+    <div>NavTab</div>
+  )
+}
+
+export default NavTab
