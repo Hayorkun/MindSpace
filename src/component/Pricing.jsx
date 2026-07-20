@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import { motion } from "framer-motion";
 
 const Pricing = () => {
   const tiers = [
@@ -55,45 +54,22 @@ const Pricing = () => {
   return (
     <section className="py-10 dark:text-white dark:bg-gray-900">
       <div className="flex flex-col justify-center items-center px-5 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.45 }}
-          className="bg-indigo-300/50 dark:bg-indigo-700 px-3 rounded-2xl py-1 mb-7"
-        >
+        <div className="bg-indigo-300/50 dark:bg-indigo-700 px-3 rounded-2xl py-1 mb-7">
           <h3 className="font-heading leading-tight tracking-widest font-semibold text-lg text-indigo-500 dark:text-indigo-200">
             Pricing
           </h3>
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.45, delay: 0.05 }}
-          className="font-heading text-4xl md:text-6xl tracking-wide leading-tight md:max-w-xl text-center font-bold mb-3"
-        >
+        </div>
+        <h1 className="font-heading text-4xl md:text-6xl tracking-wide leading-tight md:max-w-xl text-center font-bold mb-3">
           Simple, honest pricing.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.45, delay: 0.08 }}
-          className="font-body text-center text-sm md:text-2xl text-gray-700 dark:text-gray-300"
-        >
+        </h1>
+        <p className="font-body text-center text-sm md:text-2xl text-gray-700 dark:text-gray-300">
           No annual lock-in. Cancel any time. The Free plan never expires.
-        </motion.p>
+        </p>
         <div className="mt-10 grid md:grid-cols-3 gap-7 w-full">
-          {tiers.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              whileHover={{ y: -6, scale: 1.01 }}
-              className={`p-5 rounded-xl border border-gray-400 flex flex-col ${
+          {tiers.map((t) => (
+            <div
+              key={t.name}
+              className={`p-5 rounded-xl border border-gray-400 flex flex-col transition-all duration-200 hover:-translate-y-1 ${
                 t.featured ? "bg-indigo-700 border-0 text-gray-200 " : "bg-white text-gray-700"
               }`}
             >
@@ -137,7 +113,7 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Star, SearchCode } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Images from "../assets/image";
 import { useState } from "react";
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -59,11 +60,12 @@ const Hero = () => {
         <div className="md:px-10 px-5 max-w-7xl mx-auto">
           <div className="flex flex-col gap-5 md:flex-row">
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -24 }}
+              whileInView={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.45 }}
               className="md:flex-3 mb-5"
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="w-34 h-5 rounded-full flex gap-2 text-xs font-semibold items-center justify-center text-indigo-500 bg-indigo-300/50 dark:bg-indigo-600 dark:text-indigo-200 mb-5 font-body">
                 <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-200 rounded-full"></span>
@@ -124,11 +126,12 @@ const Hero = () => {
               </div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 24 }}
+              whileInView={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.45, delay: 0.05 }}
               className="md:flex-2"
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="flex justify-center items-center p-3">
                 <div className="w-full bg-gray-900 dark:bg-white dark:shadow-white dark:text-black text-white shadow-md rounded-xl p-4">
@@ -175,16 +178,11 @@ const Hero = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-5">
-                    {tasks.map((t, index) => (
-                      <motion.div
+                    {tasks.map((t) => (
+                      <div
                         key={t.id}
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.35, delay: index * 0.08 }}
-                        whileHover={{ scale: 1.01, y: -3 }}
                         onClick={() => handleToggleComplete(t.id)}
-                        className="flex gap-2 shadow-md border-2 border-gray-300/70 rounded-lg p-3 cursor-pointer transition-opacity duration-200"
+                        className="flex gap-2 shadow-md border-2 border-gray-300/70 rounded-lg p-3 cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
                       >
                         <div>
                           <p
@@ -201,7 +199,7 @@ const Hero = () => {
                             <p className="font-body text-xs">{t.date}</p>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -210,27 +208,21 @@ const Hero = () => {
           </div>
         </div>
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          whileInView={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
           className="my-10 bg-gray-200/20 border-y dark:bg-gray-700/40 dark:border-gray-500 border-gray-300/60 py-10 flex flex-col gap-5 items-center justify-center"
+          style={{ willChange: "transform, opacity" }}
         >
           <h4 className="font-heading text-xl text-gray-400/70 leading-tight uppercase">
             Trusted By Teams At
           </h4>
           <div className="flex gap-12 max-w-2xl flex-wrap justify-center">
-            {TEAMS.map((t, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="font-body text-2xl text-gray-400/70 font-bold"
-              >
+            {TEAMS.map((t) => (
+              <p key={t} className="font-body text-2xl text-gray-400/70 font-bold">
                 {t}
-              </motion.p>
+              </p>
             ))}
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 import Images from "../assets/image";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import useTheme from "../context/useTheme";
@@ -8,6 +8,7 @@ import useTheme from "../context/useTheme";
 const Navbar = () => {
   const [sideBar, setSideBar] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const shouldReduceMotion = useReducedMotion();
 
   const NavBarLinks = [
     { name: "Features", href: "#features" },
@@ -18,10 +19,11 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        initial={{ y: -12, opacity: 0 }}
+        initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: -8, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.35 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.25 }}
         className="z-50 px-5 md:px-10 border-b dark:border-gray-800 bg-white sticky -top-1 dark:bg-gray-900 dark:text-white"
+        style={{ willChange: "transform, opacity" }}
       >
         <div className="mx-auto hidden md:flex justify-between items-center h-16">
           <div className="flex items-baseline">
@@ -99,11 +101,12 @@ const Navbar = () => {
               className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 cursor-pointer"
             />
             <motion.div
-              initial={{ y: -20, opacity: 0 }}
+              initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: -12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.25 }}
+              exit={{ y: -12, opacity: 0 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
               className={`h-fit w-full z-50 py-5 top-16.5 right-0 left-0 fixed bg-white shadow-xl dark:bg-gray-900 dark:text-white`}
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="">
                 <ul className="flex flex-col gap-5 mb-5">
