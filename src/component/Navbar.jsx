@@ -23,7 +23,7 @@ const Navbar = () => {
               <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
               <h1 className="text-2xl font-semibold">
                 <strong>
-                  Mind<span className="text-indigo-600">Space</span>
+                  Mind<span className="text-indigo-500">Space</span>
                 </strong>
               </h1>
             </NavLink>
@@ -67,7 +67,7 @@ const Navbar = () => {
               <img src={Images.Planning} alt="Logo icon" className="w-5 h-5" />
               <h1 className="text-2xl font-semibold">
                 <strong>
-                  Mind<span className="text-indigo-600">Space</span>
+                  Mind<span className="text-indigo-500">Space</span>
                 </strong>
               </h1>
             </NavLink>

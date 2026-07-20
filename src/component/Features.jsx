@@ -42,7 +42,7 @@ const Feature = () => {
   ];
 
   return (
-    <section className="dark:bg-gray-900 dark:text-white py-10">
+    <section className="dark:bg-[#0d1117] dark:text-white bg-gray-100/50 py-10">
       <div className="flex flex-col items-center px-5 md:px-10">
         <div className="bg-indigo-300/50 dark:bg-indigo-700 px-3 py-1 rounded-full mb-7">
           <h3 className="font-heading leading-tight tracking-widest font-semibold text-lg text-indigo-500 dark:text-indigo-200 ">

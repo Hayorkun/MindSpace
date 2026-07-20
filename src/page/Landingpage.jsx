@@ -4,6 +4,8 @@ import Feature from "../component/Features";
 import HowItWorks from "../component/HowItWorks";
 import Testimony from "../component/Testimony";
 import Pricing from "../component/Pricing";
+import Cta from "../component/Cta";
+import Footer from "../component/Footer";
 
 const LandingPage = () => {
   return (
@@ -17,10 +19,12 @@ const LandingPage = () => {
         <section id="#how-it-works">
           <HowItWorks />
         </section>
-        <Testimony/>
+        <Testimony />
         <section id="#pricing">
-        <Pricing/>
+          <Pricing />
         </section>
+        <Cta/>
+        <Footer/>
       </main>
     </div>
   );

@@ -23,7 +23,7 @@ const Testimony = () => {
   ];
 
   return (
-    <section className="py-15 dark:bg-gray-900 dark:text-white">
+    <section className="py-10 dark:bg-[#0d1117] dark:text-white bg-gray-100/50">
       <div className="px-5 md:px-10 flex flex-col items-center">
         <div className="bg-indigo-300/50 dark:bg-indigo-500 py-1 px-3 rounded-2xl mb-7">
           <h3 className="text-indigo-500 dark:text-indigo-200 font-heading font-semibold leading-relaxed tracking-wide">

@@ -56,7 +56,7 @@ const Hero = () => {
     <section className="dark:bg-gray-900 dark:text-white py-15">
       <div className="">
         <div className="md:px-10 px-5 max-w-7xl mx-auto">
-          <div className="flex flex-col gap-3 md:flex-row">
+          <div className="flex flex-col gap-5 md:flex-row">
             <div className="md:flex-3 mb-5">
               <div className="w-34 h-5 rounded-full flex gap-2 text-xs font-semibold items-center justify-center text-indigo-500 bg-indigo-300/50 dark:bg-indigo-600 dark:text-indigo-200 mb-5 font-body">
                 <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-200 rounded-full"></span>
@@ -117,7 +117,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="md:flex-2">
-              <div className="h-full flex justify-center items-center p-3">
+              <div className=" flex justify-center items-center p-3">
                 <div className="w-full bg-gray-900 dark:bg-white dark:shadow-white dark:text-black text-white shadow-md rounded-xl p-4">
                   <div className="w-full flex gap-3 mb-2 items-center">
                     <div className="flex-1 flex gap-1 items-center">
