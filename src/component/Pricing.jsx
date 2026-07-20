@@ -22,7 +22,7 @@ const Pricing = () => {
       period: "per month",
       cta: "Start Pro trial",
       featured: true,
-      price: "$8",
+      price: "$3",
       desc: "For power users who want more depth and flexibility.",
       features: [
         "Everything in free",
@@ -38,7 +38,7 @@ const Pricing = () => {
       period: "per user / month ",
       cta: "Contact sales",
       featured: false,
-      price: "$18",
+      price: "8",
       desc: "Share, delegate, and track tasks across your whole team.",
       features: [
         "Everything in pro",

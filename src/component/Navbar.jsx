@@ -101,7 +101,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-2 cursor-pointer">
-            <button onClick={toggleTheme} className="cursor-pointer">
+            <button onClick={toggleTheme} className="cursor-pointer px-2.5 py-1.5 rounded-md dark:bg-gray-800 bg-gray-100  hover:text-indigo-400 transition-colors ease-linear duration-150">
               {theme === "dark" ? <Sun /> : <Moon />}
             </button>
             <NavLink
@@ -131,7 +131,7 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="flex items-center gap-4">
-            <button onClick={toggleTheme} className="cursor-pointer">
+            <button onClick={toggleTheme} className="cursor-pointer px-2.5 py-1.5 rounded-md dark:bg-gray-800 bg-gray-100  hover:text-indigo-400 transition-colors ease-linear duration-150">
               {theme === "dark" ? <Sun /> : <Moon />}
             </button>
             <button onClick={() => setSideBar(!sideBar)} className="cursor-pointer">

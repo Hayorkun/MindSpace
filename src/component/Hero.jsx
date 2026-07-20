@@ -85,10 +85,10 @@ const Hero = () => {
                 categories, your progress. No bloat. No friction. Just flow.
               </p>
               <div className="w-fit md:w-40 flex md:flex-col gap-3 mb-4">
-                <NavLink className="flex justify-center px-4 py-2 text-xs gap-1 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors ease-in-out duration-200">
+                <NavLink to="/signin" className="flex justify-center px-4 py-2 text-xs gap-1 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors ease-in-out duration-200">
                   Start for free <ArrowRight className="size-4" />
                 </NavLink>
-                <NavLink className="border justify-center border-gray-400/30 flex text-xs px-4 py-2 rounded-lg hover:bg-gray-300/20 dark:hover:bg-gray-700/40 transition-colors ease-in-out duration-200">
+                <NavLink to="how-it-work" className="border justify-center border-gray-400/30 flex text-xs px-4 py-2 rounded-lg hover:bg-gray-300/20 dark:hover:bg-gray-700/40 transition-colors ease-in-out duration-200">
                   See how it works
                 </NavLink>
               </div>
