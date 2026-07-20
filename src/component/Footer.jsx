@@ -32,7 +32,7 @@ const Footer = () => {
       <div className="px-5 md:px-10 text-center flex flex-col items-center">
         <NavLink
           to="/"
-          className="flex items-baseline gap-1 cursor-pointer mb-5"
+          className="flex items-baseline gap-1 cursor-pointer mb-3"
         >
           <img src={Images.Planning} alt="Logo image" className="w-5 h-5" />
           <h1 className="text-2xl font-heading font-semibold">
