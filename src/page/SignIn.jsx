@@ -3,8 +3,13 @@ import NavTab from "../component/NavTab";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import useAuth from "../context/AuthContext"
+
 
 const SignIn = () => {
+const { googleLogin } = useAuth()
+
   const SocialLink = [
     {
       icon: FcGoogle,
@@ -16,10 +21,49 @@ const SignIn = () => {
     },
   ];
 
+  const [errors, setErrors] = useState({});
+  const [isRemembered, setIsRemembered] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    isRemembered: false,
+  });
+
+  const handleChange = (f) => {
+    setFormData({
+      ...formData,
+      [f.target.name]: f.target.value,
+    });
+
+    setErrors({
+      ...errors,
+      [f.target.name]: "",
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let newError = {};
+
+    if (!formData.email.trim()) {
+      newError.email = "Email required";
+    }
+    if (!formData.password.trim()) {
+      newError.password = "Password required";
+    }
+
+    setErrors(newError);
+
+    if (Object.keys(newError).length > 0) return;
+  };
+
+  
+
   return (
     <>
       <NavTab />
-      <section className="py-20 dark:bg-gray-900 bg-gray-100 dark:text-white">
+      <section className="py-20 dark:bg-[#0d1117] bg-gray-100 dark:text-white">
         <div className="px-5 md:px-10">
           <div className="flex flex-col max-w-lg mx-auto min-h-120">
             <div className="mb-7">
@@ -33,39 +77,67 @@ const SignIn = () => {
             <form className="mb-5 flex flex-col gap-5">
               <label
                 htmlFor="email"
-                className="flex flex-col gap-5 font-body text-xl font-medium"
+                className="flex flex-col gap-5 font-body text-lg font-medium"
               >
                 {" "}
                 Email address
                 <input
                   type="text"
-                  className="border h-10 px-2 rounded-md text-base font-normal"
+                  id="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={formData.email}
+                  className="border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 h-10 px-2 rounded-md text-base font-normal"
                   placeholder="you@example.com"
                 />
+                {errors.email && (
+                  <p className="font-body text-xs text-red-500 -mt-3">
+                    {errors.email}
+                  </p>
+                )}
               </label>
               <label
                 htmlFor="password"
-                className="flex flex-col gap-5 font-body text-xl font-medium"
+                className="flex flex-col gap-5 font-body text-lg font-medium "
               >
-                Password
+                <div className="flex justify-between items-center">
+                  Password
+                  <NavLink className="text-sm text-indigo-600">
+                    Forgot password?
+                  </NavLink>
+                </div>
                 <input
+                  id="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  name="password"
                   type="password"
-                  className="border h-10 px-2 rounded-md text-base font-normal"
+                  className="border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 h-10 px-2 rounded-md text-base font-normal"
                   placeholder="********"
                 />
+                {errors.password && (
+                  <p className="font-body text-xs text-red-500 -mt-3">
+                    {errors.password}
+                  </p>
+                )}
               </label>
-              <div className="flex gap-2 items-center">
+              <label
+                htmlFor="checkbox"
+                className="font-body text-sm font-normal text-gray-700 dark:text-gray-300 flex items-center gap-2"
+              >
                 <input
-                  type="button"
-                  className="w-4 h-4 border border-gray-600 dark:border-gray-300 rounded-sm"
+                  type="checkbox"
+                  checked={isRemembered}
+                  onChange={() => setIsRemembered(!isRemembered)}
+                  className="w-4 h-4 border-2 border-gray-600 dark:border-gray-500 rounded-sm"
                 />
-                <p className="font-body text-lg font-normal text-gray-700 dark:text-gray-300">
-                  Remember me for 30 days
-                </p>
-              </div>
+                Remember me for 30 days
+              </label>
+
               <button
                 type="submit"
-                className="bg-indigo-600 py-2 rounded-lg text-lg text-white"
+                onClick={handleSubmit}
+                className="bg-indigo-600 py-2 rounded-lg text-lg text-white hover:bg-indigo-500 transition-colors ease-linear duration-200 hover:scale-101 active:scale-98"
               >
                 Sign in
               </button>
@@ -81,8 +153,9 @@ const SignIn = () => {
 
                 return (
                   <button
+                    onClick={s.name === "Google" ? googleLogin : undefined}
                     key={i}
-                    className="flex-1 flex items-center justify-center border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 gap-2 rounded-lg py-2.5 font-body text-base"
+                    className="flex-1 flex items-center justify-center border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 gap-2 rounded-lg py-2.5 font-body text-base hover:scale-102 hover:opacity-90 active:scale-98 ease-linear transition-all duration-100"
                   >
                     <Icon /> {s.name}
                   </button>
@@ -91,7 +164,7 @@ const SignIn = () => {
             </div>
             <p className="text-center font-body font-normal text-base leading-relaxed dark:text-gray-400 text-gray-500">
               Dont't have an account?{" "}
-              <NavLink to="/signup" className="text-indigo-600">
+              <NavLink to="/signup" className="ml-1 text-indigo-600">
                 Create on free
               </NavLink>
             </p>
