@@ -15,9 +15,19 @@ export function AuthProvider({ children }){
     },
   });
 
+  const githubLogin = () => {
+  const params = new URLSearchParams({
+    client_id: import.meta.env.VITE_GITHUB_CLIENT_ID,
+    redirect_uri: "https://mindspace-taskmanager.vercel.app",
+    scope: "read:user user:email",
+  });
+
+  window.location.href = `https://github.com/login/oauth/authorize?${params.toString()}`;
+};
+
 
   return (
-    <AuthContext.Provider value={{ googleLogin }}>
+    <AuthContext.Provider value={{ googleLogin,  githubLogin }}>
       {children}
     </AuthContext.Provider>
   );
