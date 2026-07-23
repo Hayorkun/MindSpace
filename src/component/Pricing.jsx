@@ -38,7 +38,7 @@ const Pricing = () => {
       period: "per user / month ",
       cta: "Contact sales",
       featured: false,
-      price: "8",
+      price: "$8",
       desc: "Share, delegate, and track tasks across your whole team.",
       features: [
         "Everything in pro",
