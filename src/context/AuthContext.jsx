@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }){
 
-  const handlGoogleLogin = useGoogleLogin({
+  const googleLogin = useGoogleLogin({
     onSuccess: (tokenResponse) => {
       console.log(tokenResponse);
     },
@@ -17,7 +17,7 @@ export function AuthProvider({ children }){
 
 
   return (
-    <AuthContext.Provider value={{ handlGoogleLogin }}>
+    <AuthContext.Provider value={{ googleLogin }}>
       {children}
     </AuthContext.Provider>
   );
